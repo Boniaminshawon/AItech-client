@@ -1,0 +1,44 @@
+[
+    {
+        "rating": 5,
+        "name": "John Doe",
+        "img": "https://i.ibb.co/7GdkC7m/images-12.jpg",
+        "review_description": "AItech provided exceptional service in designing our user interface. Their attention to detail and focus on user experience is unparalleled. The team was highly professional, responsive to our needs, and delivered a product that exceeded our expectations. Our users have provided great feedback on the intuitive design and ease of use.",
+        "date": "2023-05-14"
+    },
+    {
+        "rating": 4,
+        "name": "Jane Smith",
+        "img": "https://i.ibb.co/ggbmX2g/Coleena-Raynor-625x500.jpg",
+        "review_description": "The IT consultancy from AItech was very insightful. They helped us streamline our processes and improve our cybersecurity posture. Their experts identified key areas where we could enhance our operations, and their recommendations were both practical and effective. We've seen significant improvements in efficiency and security since implementing their suggestions.",
+        "date": "2023-04-20"
+    },
+    {
+        "rating": 5,
+        "name": "Michael Brown",
+        "img": "https://i.ibb.co/w080SfT/images-14.jpg",
+        "review_description": "Our new website developed by AItech is fantastic. It's fast, responsive, and has a modern design. The development team was excellent at understanding our requirements and turning them into reality. The project was completed on time and within budget, and we couldn't be happier with the outcome. Our online presence has been greatly enhanced.",
+        "date": "2023-03-18"
+    },
+    {
+        "rating": 4,
+        "name": "Emily Davis",
+        "img": "https://i.ibb.co/M6PJ69B/images-11.jpg",
+        "review_description": "AItech's digital services transformed our online presence. Their team was professional, knowledgeable, and dedicated to achieving the best results for our business. They provided comprehensive support throughout the project and were always available to address our concerns. Our website traffic has increased, and we have received positive feedback from our customers.",
+        "date": "2023-02-10"
+    },
+    {
+        "rating": 5,
+        "name": "Robert Wilson",
+        "img": "https://i.ibb.co/bJ9KNyh/1702237938422.jpg",
+        "review_description": "The software development services provided by AItech were top-notch. They delivered a high-quality product on time and within budget. The team was very attentive to our requirements and provided regular updates on the project's progress. The final product was exactly what we needed, and it has greatly improved our business operations.",
+        "date": "2023-01-05"
+    },
+    {
+        "rating": 4,
+        "name": "Laura Johnson",
+        "img": "https://i.ibb.co/smvC7xn/expert-Michael-Brown.jpg",
+        "review_description": "AItech's cyber security solutions have significantly improved our security infrastructure. Their expertise is evident in their work, and they provided thorough assessments and actionable recommendations. We feel much more secure now, knowing that our systems are protected by the best in the industry. Their ongoing support has been invaluable.",
+        "date": "2022-12-22"
+    }
+]
