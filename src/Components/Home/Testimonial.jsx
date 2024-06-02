@@ -7,6 +7,7 @@ import 'swiper/css/bundle';
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
+
 const Testimonial = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
@@ -18,7 +19,7 @@ const Testimonial = () => {
 
             })
     }, [])
-    console.log(reviews)
+    
     return (
         <div style={{ backgroundImage: 'url("https://i.ibb.co/x20GMYD/row-bgimage-11.png")' }} className="lg:py-12 md:py-10 py-6 bg-center bg-cover bg-no-repea ">
             <div className="text-center">
@@ -38,15 +39,18 @@ const Testimonial = () => {
 
                     {
                         reviews.map(review => <SwiperSlide key={review.name}>
+                 
+
                             <div className="flex flex-col items-center justify-center mt-16 ">
                                <div><img className="h-28 w-28 rounded-full" src={review.img} alt="" /></div>
-                                <i className="px-[190px] my-5 text-center text-[#6e6e6e] font-primary text-xl leading-7">{review.review_description}</i>
+                                <p className="px-[190px] my-5 text-center text-[#585858] font-third  text-xl leading-8">{review.review_description}</p>
                                 <Rating
                                     style={{ maxWidth: 140 }}
                                     value={review.rating}
                                     readOnly
                                 />
                                 <h3 className="text-3xl text-[#2D4A8A] font-semibold mt-2">{review.name}</h3>
+                            
                             </div>
                         </SwiperSlide>)
                     }

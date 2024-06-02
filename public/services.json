@@ -1,0 +1,42 @@
+[
+    {
+        "service_name": "Web Development",
+        "description": "We build responsive and scalable web applications using modern technologies.",
+        "img": "https://i.ibb.co/RpxQT51/line-icon-for-web-develop-vector-removebg-preview.png"
+    },
+    {
+        "service_name": "Mobile App Development",
+        "description": "Our team creates user-friendly mobile apps for both Android and iOS platforms.",
+        "img": "https://i.ibb.co/z278rjq/5738077-removebg-preview.png"
+    },
+    {
+        "service_name": "UI/UX Design",
+        "description": "We design intuitive and engaging user interfaces to enhance user experience.",
+        "img": "https://i.ibb.co/n1kxHdT/ui-ux-designer-icon-design-free-vector-removebg-preview.png"
+    },
+    {
+        "service_name": "Cloud Solutions",
+        "description": "Our cloud services help businesses scale and manage their infrastructure efficiently.",
+        "img": "https://i.ibb.co/n0cNm8k/cloud-computing-icon-free-vector-removebg-preview.png"
+    },
+    {
+        "service_name": "E-commerce Dev.",
+        "description": "We develop secure and scalable e-commerce platforms to drive your online sales.",
+        "img": "https://i.ibb.co/ZxMHDgy/images-2-removebg-preview.png"
+    },
+    {
+        "service_name": "SEO Services",
+        "description": "Our SEO strategies improve your website's visibility and search engine ranking.",
+        "img": "https://i.ibb.co/LCgjLg1/seo1-removebg-preview.png"
+    },
+    {
+        "service_name": "IT Consultancy",
+        "description": "We provide expert IT consultancy to help you make informed technology decisions.",
+        "img": "https://i.ibb.co/mvyhC35/images-3-removebg-preview.png"
+    },
+    {
+        "service_name": "Cyber Security",
+        "description": "Our cyber security services protect your business from digital threats and breaches.",
+        "img": "https://i.ibb.co/zx2HwkR/1797500-removebg-preview.png"
+    }
+]

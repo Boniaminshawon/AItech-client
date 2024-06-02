@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import { GoStopwatch } from "react-icons/go";
+import { TbPhoneCall } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 
@@ -32,7 +32,7 @@ const Footer = () => {
                     <h1 className="text-white text-5xl  font-extrabold">AItech</h1>
                     <p className="text-[#FFFFFFCC] my-4 font-primary text-xl">We are equipped with an updated technical knowledge to serve our customers  properly. Our method of application maintains the industry.</p>
                     <div className="bg-[#222c40] flex md:mr-16 gap-10 p-3 items-center">
-                        <p className="text-[#FFFFFF] text-3xl flex justify-center items-center bg-[#2D4A8A] w-14 h-14 rounded-full rounded-tr-none"><GoStopwatch></GoStopwatch></p>
+                        <p className="text-[#FFFFFF] text-3xl flex justify-center items-center bg-[#2D4A8A] w-14 h-14 rounded-full rounded-tr-none"><TbPhoneCall></TbPhoneCall></p>
                         <div>
                             <p className="text-2xl text-[#ffffffcc] font-medium">Talk To Our Support</p>
                             <p className="text-xl font-semibold text-white">+088 01876158706</p>
