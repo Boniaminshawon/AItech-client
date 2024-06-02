@@ -22,7 +22,7 @@ const Testimonial = () => {
     return (
         <div style={{ backgroundImage: 'url("https://i.ibb.co/x20GMYD/row-bgimage-11.png")' }} className="lg:py-12 md:py-10 py-6 bg-center bg-cover bg-no-repea ">
             <div className="text-center">
-                <h1 className='md:text-4xl  text-[28px] font-semibold text-center font-third'>What Our Client Say</h1>
+                <h1 className='md:text-4xl  text-[28px] font-semibold text-center font-third'>Our Client's Review</h1>
 
             </div>
             <div>
