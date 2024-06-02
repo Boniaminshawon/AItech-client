@@ -1,9 +1,12 @@
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
+    const [user,setUser]= useState([])
     return (
         <div>
-            <div className="navbar bg-[#FFFFFFCC] fixed z-10">
+            <div className="navbar bg-[#FFFFFFCC] fixed z-10 font-primary text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -11,35 +14,60 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link to={'/'}>        <button className="btn btn-ghost"> <img className="w-[155px]" src="https://i.ibb.co/WH0HB0z/logo-1.png" alt="" /></button></Link>
+
                 </div>
+                
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a>Item 3</a></li>
+                    <ul className="menu menu-horizontal px-1 text-[#2D4A8A]">
+                        <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Home</button></NavLink></li>
+
+                        <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
+
+                        <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold  ">Dashboard</button></NavLink></li>
+
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+
+
+
+                <div className="navbar-end ">
+                    {!user ?
+
+                        <div className="">
+
+                            <div className="dropdown dropdown-bottom dropdown-hover dropdown-end text-black z-10">
+
+                                <div tabIndex={0} role="button" className="w-12 tooltip   tooltip-info tooltip-left z-10 " >
+                                    <img className="rounded-full md:h-[44px] md:w-[44px] h-[32px] w-[32px] bg-white" alt="" src={user?.photoURL || "https://i.ibb.co/L1kVMdW/images-removebg-preview.png"} />
+                                </div>
+
+
+                                <ul tabIndex={0} className="dropdown-content text-sm sm:text-lg font-semibold text-[#f3a648] text-left bg-[#2D4A8A] z-[1] menu  shadow rounded w-[100px] md:w-[120px]">
+
+
+                                
+                                    <li> <button  className="sm:py-2 py-1 px-3 sm:h-[44px] rounded   border-[#2D4A8A]   ">Log Out</button></li>
+                                    <hr />
+                                </ul>
+                            </div>
+
+                        </div>
+                        :
+
+                        <div className="space-x-2 flex">
+                             <div>
+                             <Link to={'/signIn'} className=""> <button className=" py-1 text-sm sm:py-2 px-3 sm:h-[44px] font-bold rounded  btn  xl:text-lg md:text-base bg-[#2D4A8A] hover:text-[#2D4A8A]  border-[#2D4A8A] text-white">Sign In</button></Link>
+                            </div>
+                            <div className="hidden md:flex">
+                                <Link to={'/signUp'} className=""> <button className=" py-1 text-sm sm:py-2 px-3 sm:h-[44px] font-bold rounded  btn  xl:text-lg md:text-base bg-[#2D4A8A] hover:text-[#2D4A8A]  border-[#2D4A8A] text-white">Sign Up</button></Link>
+                            </div>
+                           
+                        </div>
+                    }
                 </div>
             </div>
         </div>
