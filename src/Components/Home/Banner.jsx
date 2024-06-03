@@ -33,6 +33,8 @@ const Banner = () => {
                         </div>
                     </div>
                 </SwiperSlide>
+                {/* https://i.ibb.co/TM3PZ2W/col-bgimage-1.jpg */}
+                {/* https://i.ibb.co/gS42Jdf/slider-mainbg-001.jpg */}
                 <SwiperSlide>
                     <div style={{ backgroundImage: 'url("https://i.ibb.co/gS42Jdf/slider-mainbg-001.jpg")' }} className=" bg-center bg-cover bg-no-repeat h-[315px] md:h-[480px] lg:h-[600px] flex flex-col items-start justify-center ">
                         <div className=" w-1/2  ml-20 space-y-6" >

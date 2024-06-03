@@ -24,7 +24,7 @@ const Blog = () => {
         <div className="bg-[#f7f9fe bg-white font-primary py-16">
             <p className="text-[#2d4a8a] font-medium text-center text-xl mb-1">Our Blog</p>
             <p className="text-center text-4xl font-bold  text-[#263045]">Check Out Our <span className=" text-[#2d4a8a] font-secondary"><i>Latest News </i></span></p>
-            <p className="text-center px-24 text-[#6e6e6e] text-xl mt-4">Welcome to our blog section, where we share the latest insights and trends in software development. From cutting-edge technologies to best practices, our expert articles are designed to help you stay ahead in the ever-evolving tech landscape.</p>
+            <p className="text-center px-24 text-[#6e6e6e] text-xl mt-5">Welcome to our blog section, where we share the latest insights and trends in software development. From cutting-edge technologies to best practices, our expert articles are designed to help you stay ahead in the ever-evolving tech landscape.</p>
 
             <div className="mt-10">
                 <Swiper
