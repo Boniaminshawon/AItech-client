@@ -21,9 +21,10 @@ const Testimonial = () => {
     }, [])
     
     return (
-        <div style={{ backgroundImage: 'url("https://i.ibb.co/x20GMYD/row-bgimage-11.png")' }} className="lg:py-12 md:py-10 py-6 bg-center bg-cover bg-no-repea ">
+        <div style={{ backgroundImage: 'url("https://i.ibb.co/x20GMYD/row-bgimage-11.png")' }} className="lg:py-10 md:py-10 py-6 bg-center bg-cover bg-no-repea ">
             <div className="text-center">
-                <h1 className='md:text-4xl  text-[28px] font-semibold text-center font-third'>Our Client's Review</h1>
+            <p className="text-[#2d4a8a] font-medium font-primary text-center text-xl mb-2">Testimonial</p>
+                <h1 className='md:text-4xl  text-[28px] font-bold text-center font-primary'>Check Out Our  <span className=" text-[#2d4a8a] font-secondary"><i>Client's review</i></span></h1>
 
             </div>
             <div>

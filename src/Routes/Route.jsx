@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import ContactUs from "../Pages/ContactUs";
 import SignIn from "../Pages/Authetication/SignIn";
 import SignUp from "../Pages/Authetication/SignUp";
+import BlogDetails from "../Components/Home/BlogDetails";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/blog/:writer',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`blog.json/${params.writer}`)
             }
         ]
     },
