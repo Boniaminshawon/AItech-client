@@ -31,7 +31,7 @@ const Testimonial = () => {
                 <Swiper
                     loop={true}
                     autoplay={{
-                        delay: 6000,
+                        delay: 7000,
                     }}
                     pagination={{
                         clickable: true,
@@ -42,7 +42,7 @@ const Testimonial = () => {
                         reviews.map(review => <SwiperSlide key={review.name}>
                  
 
-                            <div className="flex flex-col items-center justify-center mt-16 ">
+                            <div className="flex flex-col items-center justify-center mt-11 ">
                                <div><img className="h-28 w-28 rounded-full" src={review.img} alt="" /></div>
                                 <p className="px-[190px] my-5 text-center text-[#585858] font-third  text-xl leading-8">{review.review_description}</p>
                                 <Rating
