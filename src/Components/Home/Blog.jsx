@@ -1,24 +1,27 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { Autoplay, FreeMode, Pagination } from "swiper/modules";
+
+import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import 'swiper/css/bundle';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { RiBallPenFill } from "react-icons/ri";
 import { MdDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const Blog = () => {
-    const [blogs, setBlogs] = useState([]);
-    useEffect(() => {
-        fetch('blog.json')
-            .then(res => res.json())
-            .then(data => {
-                setBlogs(data)
-            });
+   
+    const axiosPublic = useAxiosPublic();
+    const { data: blogs = [] } = useQuery({
+        queryKey: ['blogs'],
+        queryFn: async () => {
 
-    }, [])
+            const res = await axiosPublic.get('/blogs');
+            return res.data;
+
+        }
+    })
 
     return (
         <div className="bg-[#f7f9fe bg-white font-primary py-16">
@@ -30,7 +33,7 @@ const Blog = () => {
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
-                 
+
                     loop={true}
                     autoplay={{
                         delay: 6000,

@@ -4,7 +4,7 @@ const WorkProcess = () => {
     return (
         <div className="bg-[#f7f9fe] py-16 font-primary">
             <p className="text-[#2d4a8a] font-medium text-center text-xl mb-1">How It Work</p>
-            <p className="text-center text-4xl font-bold  text-[#263045] mb-10">Check Out Our  <span className=" text-[#2d4a8a] font-secondary"><i>Process</i></span></p>
+            <p className="text-center text-4xl font-bold  text-[#263045] mb-14">Check Out Our  <span className=" text-[#2d4a8a] font-secondary"><i>Process</i></span></p>
             <div className="grid grid-cols-4">
                 {/* part 1 */}
                 <div className="  ">

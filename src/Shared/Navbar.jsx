@@ -1,9 +1,14 @@
-import { useState } from "react";
+
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 
 const Navbar = () => {
-    const [user,setUser]= useState([])
+    const { user, logOut } = useAuth();
+    const handleLogOut = () => {
+        logOut()
+            .then().catch(error => console.log(error))
+    }
     return (
         <div>
             <div className="navbar bg-[#FFFFFFCC] fixed z-10 font-primary text-black">
@@ -13,14 +18,18 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Home</button></NavLink></li>
+
+                            <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
+
+                            <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold  ">Dashboard</button></NavLink></li>
 
                         </ul>
                     </div>
                     <Link to={'/'}>        <button className="btn btn-ghost"> <img className="w-[155px]" src="https://i.ibb.co/WH0HB0z/logo-1.png" alt="" /></button></Link>
 
                 </div>
-                
+
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-[#2D4A8A]">
                         <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Home</button></NavLink></li>
@@ -35,7 +44,7 @@ const Navbar = () => {
 
 
                 <div className="navbar-end ">
-                    {!user ?
+                    {user ?
 
                         <div className="">
 
@@ -49,8 +58,8 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="dropdown-content text-sm sm:text-lg font-semibold text-[#f3a648] text-left bg-[#2D4A8A] z-[1] menu  shadow rounded w-[100px] md:w-[120px]">
 
 
-                                
-                                    <li> <button  className="sm:py-2 py-1 px-3 sm:h-[44px] rounded   border-[#2D4A8A]   ">Log Out</button></li>
+
+                                    <li> <button onClick={handleLogOut} className="sm:py-2 py-1 px-3 sm:h-[44px] rounded   border-[#2D4A8A]   ">Log Out</button></li>
                                     <hr />
                                 </ul>
                             </div>
@@ -59,13 +68,13 @@ const Navbar = () => {
                         :
 
                         <div className="space-x-2 flex">
-                             <div>
-                             <Link to={'/signIn'} className=""> <button className=" py-1 text-sm sm:py-2 px-3 sm:h-[44px] font-bold rounded  btn  xl:text-lg md:text-base bg-[#2D4A8A] hover:text-[#2D4A8A]  border-[#2D4A8A] text-white">Sign In</button></Link>
+                            <div>
+                                <Link to={'/signIn'} className=""> <button className=" py-1 text-sm sm:py-2 px-3 sm:h-[44px] font-bold rounded  btn  xl:text-lg md:text-base bg-[#2D4A8A] hover:text-[#2D4A8A]  border-[#2D4A8A] text-white">Sign In</button></Link>
                             </div>
                             <div className="hidden md:flex">
                                 <Link to={'/signUp'} className=""> <button className=" py-1 text-sm sm:py-2 px-3 sm:h-[44px] font-bold rounded  btn  xl:text-lg md:text-base bg-[#2D4A8A] hover:text-[#2D4A8A]  border-[#2D4A8A] text-white">Sign Up</button></Link>
                             </div>
-                           
+
                         </div>
                     }
                 </div>
