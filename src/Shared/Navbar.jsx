@@ -48,10 +48,10 @@ const Navbar = () => {
 
                         <div className="">
 
-                            <div className="dropdown dropdown-bottom dropdown-hover dropdown-end text-black z-10">
+                            <div data-tip={user?.displayName || 'update hoy nai'} className="dropdown tooltip tooltip-left dropdown-bottom dropdown-hover dropdown-end text-black z-10">
 
                                 <div tabIndex={0} role="button" className="w-12 tooltip   tooltip-info tooltip-left z-10 " >
-                                    <img className="rounded-full md:h-[44px] md:w-[44px] h-[32px] w-[32px] bg-white" alt="" src={user?.photoURL || "https://i.ibb.co/L1kVMdW/images-removebg-preview.png"} />
+                                    <img  className="rounded-full  md:h-[44px] md:w-[44px] h-[32px] w-[32px] bg-white" alt="" src={user?.photoURL || "https://i.ibb.co/L1kVMdW/images-removebg-preview.png"} />
                                 </div>
 
 
