@@ -5,6 +5,8 @@ import ContactUs from "../Pages/ContactUs";
 import SignIn from "../Pages/Authetication/SignIn";
 import SignUp from "../Pages/Authetication/SignUp";
 import BlogDetails from "../Components/Home/BlogDetails";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/contact',
-                element: <ContactUs></ContactUs>
+                element: <PrivateRoute> <ContactUs></ContactUs></PrivateRoute>
             },
             {
                 path: '/signIn',
@@ -33,5 +35,13 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            
+           
+        ]
+    }
 ]);
 export default router;

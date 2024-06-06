@@ -1,3 +1,4 @@
+import { Puff } from "react-loader-spinner";
 
 
 const Loader = () => {
