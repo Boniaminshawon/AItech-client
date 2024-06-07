@@ -3,9 +3,12 @@
 const WorkProcess = () => {
     return (
         <div className="bg-[#f7f9fe] py-16 font-primary">
-            <p className="text-[#2d4a8a] font-medium text-center text-xl mb-1">How It Work</p>
-            <p className="text-center text-4xl font-bold  text-[#263045] mb-14">Check Out Our  <span className=" text-[#2d4a8a] font-secondary"><i>Process</i></span></p>
-            <div className="grid grid-cols-4">
+             <div className=" flex justify-center flex-col items-center">
+                <p className="text-[#2d4a8a] font-medium text-center text-xl mb-2">How It Work</p>
+                <p className="text-center text-4xl font-bold  text-[#263045] ">Check Out Our <span className=" text-[#2d4a8a] font-secondary"><i>Process </i></span></p>
+                <p className="border-[3px]  rounded-b-xl border-[#2D4A8A] w-[110px] mt-4"></p>
+            </div>
+            <div className="grid grid-cols-4 mt-12">
                 {/* part 1 */}
                 <div className="  ">
                     <div className="flex flex-col justify-center items-center ">

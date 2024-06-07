@@ -14,8 +14,12 @@ const Services = () => {
 
     return (
         <div className="bg-[#f7f9fe] font-primary pt-16">
-            <p className="text-[#2d4a8a] font-medium text-center text-xl mb-1">We Make Connections</p>
-            <p className="text-center text-4xl font-bold  text-[#263045]">We provide best <span className=" text-[#2d4a8a] font-secondary"><i>Services</i></span></p>
+
+            <div className=" flex justify-center flex-col items-center">
+                <p className="text-[#2d4a8a] font-medium text-center text-xl mb-2">We Make Connections</p>
+                <p className="text-center text-4xl font-bold  text-[#263045] ">We Provide Best <span className=" text-[#2d4a8a] font-secondary"><i>Services </i></span></p>
+                <p className="border-[3px]  rounded-b-xl border-[#2D4A8A] w-[110px] mt-4"></p>
+            </div>
             <div className="grid grid-cols-4 mt-2">
                 {
                     services?.map(service => <div key={service?._id} className="p-7 bg-[#FFFFFF] border  border-dotted hover:bg-[#2d4a8a] hover:text-[#ffffff] hover:border-white  mt-8">
