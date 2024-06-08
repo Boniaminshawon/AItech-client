@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -9,8 +9,18 @@ import { useQuery } from "@tanstack/react-query";
 
 const WorkSheet = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const [workInfos, setWorkInfos] = useState([]);
     
     const axiosSecure = useAxiosSecure();
+
+    const { data: workInfo = [], refetch } = useQuery({
+        queryKey: ['workInfo'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/employee-work-info');
+            return setWorkInfos(res.data.reverse(workInfo));
+        },
+        
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +34,7 @@ const WorkSheet = () => {
 
             if (data.insertedId) {
                 swal("Wow!", "Registered successfully!  ", "success");
+                refetch();
 
             }
         }
@@ -32,25 +43,6 @@ const WorkSheet = () => {
         }
     }
 
-    const [workInfos, setWorkInfos] = useState([]);
-
-    const { data: workInfo = [], refetch } = useQuery({
-        queryKey: ['workInfo'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/employee-work-info')
-            return setWorkInfos(res.data.reverse(workInfo));
-        }
-    });
-
-
-   // useEffect(() => {
-    //     const getData = async () => {
-    //         const { data } = await axiosSecure.get('/employee-work-info');
-    //         console.log(data)
-    //         setWorkInfos(data)
-    //     }
-    //     getData();
-    // }, [axiosSecure])
     return (
         <div >
             <div className=" font-primary">

@@ -42,7 +42,7 @@ const Blog = () => {
                     className="mySwiper bg-white"
                 >
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[0]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[0]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[0]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[0]?.blog_title}</h2>
@@ -56,7 +56,7 @@ const Blog = () => {
                     </SwiperSlide>
 
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[1]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[1]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[1]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[1]?.blog_title}</h2>
@@ -70,7 +70,7 @@ const Blog = () => {
                     </SwiperSlide>
 
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[2]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[2]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[2]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[2]?.blog_title}</h2>
@@ -84,7 +84,7 @@ const Blog = () => {
                     </SwiperSlide>
 
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[3]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[3]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[3]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[3]?.blog_title}</h2>
@@ -98,7 +98,7 @@ const Blog = () => {
                     </SwiperSlide>
 
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[4]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[4]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[4]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[4]?.blog_title}</h2>
@@ -112,7 +112,7 @@ const Blog = () => {
                     </SwiperSlide>
 
                     <SwiperSlide className="shadow-2xl bg-white">
-                        <Link to={`/blog/${blogs[5]?.writer}`} className="bg-white">
+                        <Link to={`/blog/${blogs[5]?._id}`} className="bg-white">
                             <img className="h-[260px] w-full rounded-t" src={blogs[5]?.img} alt="" />
                             <div className="p-4 bg-white">
                                 <h2 className="text-2xl font-primary font-bold">{blogs[5]?.blog_title}</h2>

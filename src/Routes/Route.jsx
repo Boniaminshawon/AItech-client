@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/contact',
-                element: <PrivateRoute> <ContactUs></ContactUs></PrivateRoute>
+                element: <ContactUs></ContactUs>
             },
             {
                 path: '/signIn',
@@ -37,9 +37,9 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: '/blog/:writer',
+                path: '/blog/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader: ({ params }) => fetch(`blog.json/${params.writer}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blog/${params.id}`)
             }
         ]
     },

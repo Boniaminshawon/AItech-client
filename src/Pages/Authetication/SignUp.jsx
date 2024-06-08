@@ -12,6 +12,7 @@ const SignUp = () => {
     const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const { createUser, updateUserProfile, setUser } = useAuth();
+    const isVarified= false;
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
 
@@ -57,7 +58,7 @@ const SignUp = () => {
         console.log(res)
         if (res.data.success) {
             const userInfo = {
-                name, email, role, designation, bank_Ac, salary, image: res.data.data.display_url, password
+                name, email, role,isVarified, designation, bank_Ac, salary, image: res.data.data.display_url, password
             }
             console.log(userInfo)
 

@@ -14,10 +14,10 @@ const Dashboard = () => {
     const [isEmployee] = useEmployee();
     const [isHR] = useHR();
     const [isAdmin] = useAdmin();
-    console.log(isEmployee)
+    console.log(isEmployee,isHR,isAdmin)
     return (
         <div className="flex">
-            <div className="min-h-screen w-[18%] bg-[#2D4A8A] font-primary">
+            <div className="min-h-screen w-[17%] bg-[#2D4A8A] font-primary">
                 {/* for employee */}
                 {
                     isEmployee && <div>
