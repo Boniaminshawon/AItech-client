@@ -28,7 +28,7 @@ const Home = () => {
     });
 
     useEffect(() => {
-
+        refetch()
         if (person.isFired === true) {
 
             navigate('/signIn');

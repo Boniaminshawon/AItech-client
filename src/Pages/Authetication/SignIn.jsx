@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import swal from "sweetalert";
 
 
 
@@ -11,19 +13,23 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignIn = () => {
     const { signIn, googleSignIn, user
-     } = useAuth();
+    } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
-
+    const axiosPublic = useAxiosPublic();
     const from = location.state?.from?.pathname || "/";
     useEffect(() => {
         if (user) {
             navigate('/')
         }
     }, [navigate, user]);
+
+    const role = 'Employee';
+    const salary = '1000';
+    const isVarified = false;
 
 
     const {
@@ -42,13 +48,14 @@ const SignIn = () => {
 
             // User Login
             const result = await signIn(email, password);
+
             const user = result.user;
 
             if (user) {
-                navigate(from, { replace: true });
+                navigate(from, { replace: true } || '/');
             }
 
-        
+
 
         } catch (err) {
             console.log(err?.message)
@@ -66,12 +73,30 @@ const SignIn = () => {
             // 1. google sign in from firebase
             const result = await googleSignIn();
 
+
             const user = result.user;
+            console.log(user)
 
             if (user) {
+                const userInfo = {
+                    role, isVarified, salary,email:user?.email,name:user?.displayName, image: user?.photURL
+                }
+
+                const { data } = await axiosPublic.post('/user', userInfo);
+                console.log(data)
+                if (data.insertedId) {
+                    console.log('okk')
+
+                    swal("Wow!", "Sign In successfully!  ", "success");
+
+
+                    navigate(from, { replace: true } || '/');
+
+                }
+
                 navigate(from, { replace: true })
             }
-            toast.success('SignIn Successful')
+            // toast.success('SignIn Successful')
 
         } catch (err) {
             console.log(err)
