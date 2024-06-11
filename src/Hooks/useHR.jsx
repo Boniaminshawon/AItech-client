@@ -9,7 +9,7 @@ const useHR = () => {
 
     const { data: isHR, isPending: isHRLoading } = useQuery({
         queryKey: [user?.email, 'isHR'],
-        enabled: !loading,
+        enabled: !loading && !!user?.email,
         queryFn: async () => {
           
             const res = await axiosSecure.get(`/user/HR/${user?.email}`);

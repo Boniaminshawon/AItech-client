@@ -1,21 +1,33 @@
-import { useLoaderData } from "react-router-dom";
+import { CardElement, Elements, useElements, useStripe } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckOutForm from "./CheckOutForm";
 
 
-const PayModal = () => {
-    const employee = useLoaderData();
-    console.log(employee)
+
+
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK)
+const PayModal = ({ employeeData }) => {
+
+
     return (
         <div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
-     
-            <dialog id="my_modal_1" className="modal">
+
+            <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
+
+
+                    <Elements stripe={stripePromise}>
+                        <CheckOutForm employeeData={employeeData}></CheckOutForm>
+                    </Elements>
+
+
+                  
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button className="btn  rounded bg-[#f01c1ce9] text-white">Close</button>
+
                         </form>
                     </div>
                 </div>

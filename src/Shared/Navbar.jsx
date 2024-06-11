@@ -8,9 +8,9 @@ import useEmployee from "../Hooks/useEmployee";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    const [isAdmin] = useAdmin();
-    const [isHR] = useHR();
-    const [isEmployee] = useEmployee();
+    // const [isAdmin] = useAdmin();
+    // const [isHR] = useHR();
+    // const [isEmployee] = useEmployee();
     const handleLogOut = () => {
         logOut()
             .then().catch(error => console.log(error))

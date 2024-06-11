@@ -10,11 +10,13 @@ import useAuth from "../Hooks/useAuth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 const Home = () => {
     const { user, logOut } = useAuth();
     const axiosPublic = useAxiosPublic();
+    // const axiosSecure= useAxiosSecure();
     const navigate = useNavigate();
 
     const { data: person = [], refetch } = useQuery({
@@ -26,19 +28,21 @@ const Home = () => {
     });
 
     useEffect(() => {
-       
-        if (person.isFired) {
+
+        if (person.isFired === true) {
+
             navigate('/signIn');
-            logOut();
+
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Sorry! You are fired by admin!",
                 footer: 'you can not open your account'
             });
+            logOut();
         }
 
-    }, [logOut, person.isFired, navigate, refetch])
+    }, [logOut, person.isFired, navigate])
 
     return (
         <div>

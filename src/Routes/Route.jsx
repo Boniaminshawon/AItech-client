@@ -65,11 +65,11 @@ const router = createBrowserRouter([
                 path: 'employee-list',
                 element: <HrRoute><EmployeeList></EmployeeList></HrRoute>
             },
-            {
-                path: 'employee-list/:id',
-                element: <HrRoute><PayModal></PayModal></HrRoute>,
-                loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/employee/${params.id}`)
-            },
+            // {
+            //     path: 'employee-list/:id',
+            //     element: <HrRoute><PayModal></PayModal></HrRoute>,
+            //     loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/employee/${params.id}`)
+            // },
             {
                 path: 'progress',
                 element: <HrRoute><Progress></Progress></HrRoute>

@@ -28,8 +28,6 @@ const SignUp = () => {
         const { name, email, role, designation, bank_Ac, salary, image, password } = data;
 
 
-
-
         if (password.length < 6) {
             setRegisterError('Password should be at least 6 characters or longer');
             return;
@@ -60,7 +58,7 @@ const SignUp = () => {
             const userInfo = {
                 name, email, role,isVarified, designation, bank_Ac, salary, image: res.data.data.display_url, password
             }
-            console.log(userInfo)
+       
 
             try {
                 const result = await createUser(email, password);
@@ -202,7 +200,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text text-lg font-medium">Salary <span className="text-red-500 font-bold">*</span></span>
                                     </label>
-                                    <input type="number" placeholder="Your Name" className="input input-bordered"
+                                    <input type="number" placeholder="Your Name" className="input input-bordered" min="5000" max="100000"
                                         {...register("salary", { required: true })}
                                     />
                                     {errors.salary && <span className="text-red-500 mt-2 text-lg">This field is required</span>}

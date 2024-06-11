@@ -4,12 +4,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import PayModal from "../../../Components/PayModal";
+import { connectStorageEmulator } from "firebase/storage";
 
 
 
 
 const EmployeeList = () => {
     const [isVarified, setIsVarified] = useState(false);
+    const [employeeData, setEmployeeData] = useState([]);
     const axiosSecure = useAxiosSecure();
     const { data: employeeList = [], refetch } = useQuery({
         queryKey: ['employeeList'],
@@ -36,10 +38,13 @@ const EmployeeList = () => {
             });
         }
     }
-    const handleModal = () => {
-        document.getElementById('my_modal_1').showModal()
+    const handleModal = async (id) => {
+        document.getElementById('my_modal_2').showModal();
+        const { data } = await axiosSecure.get(`/employee/${id}`)
+        setEmployeeData(data);
+
     }
-    return (
+       return (
         <div>
             {/* work sheet table */}
             <div>
@@ -81,13 +86,13 @@ const EmployeeList = () => {
 
                                         {/* <td className=""><Link to={`${employee._id}`}><button disabled={!employee.isVarified} onClick={handleModal} className="btn rounded bg-[#17b932aa] text-white">Pay</button></Link></td> */}
                                         <td>
-                                            {!employee.isVarified?
-                                            <button disabled className="btn rounded bg-[#17b932aa] text-white">Pay</button> :
+                                            {!employee.isVarified ?
+                                                <button disabled className="btn rounded bg-[#17b932aa] text-white">Pay</button> :
 
-                                            <button  onClick={handleModal} className="btn rounded bg-[#17b932aa] text-white">Pay</button>
-                                            // <Link to={`${employee._id}`}></Link>
+                                                <button onClick={() => handleModal(employee._id)} className="btn rounded bg-[#17b932aa] text-white">Pay</button>
+                                                // <Link to={`${employee._id}`}></Link>
 
-                                        }
+                                            }
                                         </td>
                                         <td ><Link to={`${employee._id}`}><button className=" btn rounded font-semibold  bg-[#2d4a8a] text-white">Details</button></Link></td>
                                     </tr>)
@@ -98,7 +103,8 @@ const EmployeeList = () => {
                         </table>
                     </div>
                 </div>
-                <PayModal></PayModal>
+                {/* modal */}
+                <PayModal employeeData={employeeData}></PayModal>
             </div>
             <div>
             </div>
