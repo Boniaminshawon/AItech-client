@@ -1,25 +1,26 @@
-import {  useState } from "react";
+import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import swal from "sweetalert";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../Hooks/useAuth";
 
 
 
 const WorkSheet = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [workInfos, setWorkInfos] = useState([]);
-    
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
     const { data: workInfo = [], refetch } = useQuery({
         queryKey: ['workInfo'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/employee-work-info');
+            const res = await axiosSecure.get(`/employee-work-info/${user?.email}`);
             return setWorkInfos(res.data.reverse(workInfo));
         },
-        
+
     });
 
     const handleSubmit = async (e) => {
@@ -28,7 +29,8 @@ const WorkSheet = () => {
         const date = startDate;
         const task = form.task.value;
         const hour = form.hour.value;
-        const info = { date, task, hour }
+        const email = user?.email;
+        const info = { date, task, hour,email }
         try {
             const { data } = await axiosSecure.post('/employee-work-info', info);
 

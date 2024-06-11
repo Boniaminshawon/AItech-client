@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import useEmployee from "../Hooks/useEmployee";
 import useHR from "../Hooks/useHR";
 import useAdmin from "../Hooks/useAdmin";
@@ -14,9 +14,10 @@ const Dashboard = () => {
     const [isEmployee] = useEmployee();
     const [isHR] = useHR();
     const [isAdmin] = useAdmin();
-    console.log(isEmployee,isHR,isAdmin)
+   
     return (
         <div className="flex">
+            <ScrollRestoration />
             <div className="min-h-screen w-[17%] bg-[#2D4A8A] font-primary">
                 {/* for employee */}
                 {

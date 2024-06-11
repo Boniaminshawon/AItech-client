@@ -1,17 +1,44 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import PayModal from "../../../Components/PayModal";
+
+
 
 
 const EmployeeList = () => {
+    const [isVarified, setIsVarified] = useState(false);
     const axiosSecure = useAxiosSecure();
-    const { data: employeeList = [] } = useQuery({
+    const { data: employeeList = [], refetch } = useQuery({
         queryKey: ['employeeList'],
         queryFn: async () => {
-            const {data} = await axiosSecure.get('user/employee-list');
+            const { data } = await axiosSecure.get('user/employee-list');
             return data;
         }
     });
-    console.log(employeeList)
+
+    const handleToggle = async (id) => {
+        setIsVarified(!isVarified);
+        const verified = {
+            isVarified
+        }
+        const { data } = await axiosSecure.patch(`user/employee-list/${id}`, verified);
+        refetch();
+        if (data.modifiedCount) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }
+    }
+    const handleModal = () => {
+        document.getElementById('my_modal_1').showModal()
+    }
     return (
         <div>
             {/* work sheet table */}
@@ -37,19 +64,43 @@ const EmployeeList = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {
-                                    workInfos.map((item, index) => <tr key={item._id} className="hover">
+                                {
+                                    employeeList.map((employee, index) => <tr key={employee._id} className="hover">
                                         <th>{index + 1}</th>
+                                        <td>{employee.name}</td>
+                                        <td>{employee.email}</td>
+                                        <td> {employee.bank_Ac}</td>
+                                        <td>{employee.salary}</td>
+
+
+                                        <td> <button className="text-center btn rounded text-xl font-bold" onClick={() => { handleToggle(employee._id) }}>
+                                            {employee.isVarified ? '✅' : '❌'}
+                                        </button>
+                                        </td>
+                                        {/*  */}
+
+                                        {/* <td className=""><Link to={`${employee._id}`}><button disabled={!employee.isVarified} onClick={handleModal} className="btn rounded bg-[#17b932aa] text-white">Pay</button></Link></td> */}
                                         <td>
-                                            {new Date(item.date).toLocaleDateString()}</td>
-                                        <td>{item.task}</td>
-                                        <td>{item.hour} Hour</td>
+                                            {!employee.isVarified?
+                                            <button disabled className="btn rounded bg-[#17b932aa] text-white">Pay</button> :
+
+                                            <button  onClick={handleModal} className="btn rounded bg-[#17b932aa] text-white">Pay</button>
+                                            // <Link to={`${employee._id}`}></Link>
+
+                                        }
+                                        </td>
+                                        <td ><Link to={`${employee._id}`}><button className=" btn rounded font-semibold  bg-[#2d4a8a] text-white">Details</button></Link></td>
                                     </tr>)
-                                } */}
+                                }
+
                             </tbody>
+
                         </table>
                     </div>
                 </div>
+                <PayModal></PayModal>
+            </div>
+            <div>
             </div>
         </div>
     );

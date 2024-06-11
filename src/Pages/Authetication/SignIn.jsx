@@ -8,13 +8,15 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 
+
 const SignIn = () => {
-    const { signIn, googleSignIn, user } = useAuth();
+    const { signIn, googleSignIn, user
+     } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    // const axiosPublic = useAxiosPublic();
+
 
     const from = location.state?.from?.pathname || "/";
     useEffect(() => {
@@ -22,6 +24,7 @@ const SignIn = () => {
             navigate('/')
         }
     }, [navigate, user]);
+
 
     const {
         register,
@@ -33,20 +36,19 @@ const SignIn = () => {
 
     const onSubmit = async (data) => {
         const { email, password } = data;
-        console.log('email', email, 'password', password)
+
 
         try {
 
             // User Login
             const result = await signIn(email, password);
-           
             const user = result.user;
 
             if (user) {
-                navigate(from, { replace: true })
+                navigate(from, { replace: true });
             }
 
-            toast.success('Signin Successful')
+        
 
         } catch (err) {
             console.log(err?.message)

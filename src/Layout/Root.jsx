@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 
@@ -6,6 +6,7 @@ import Footer from "../Shared/Footer";
 const Root = () => {
     return (
         <div>
+            <ScrollRestoration />
             <div >
                 {/* className="lg:h-[76px] h-[64px] md:h-[67px]" */}
                 <Navbar></Navbar>

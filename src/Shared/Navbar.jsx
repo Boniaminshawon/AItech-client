@@ -1,10 +1,16 @@
 
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
+import useHR from "../Hooks/useHR";
+import useEmployee from "../Hooks/useEmployee";
 
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const [isAdmin] = useAdmin();
+    const [isHR] = useHR();
+    const [isEmployee] = useEmployee();
     const handleLogOut = () => {
         logOut()
             .then().catch(error => console.log(error))
@@ -22,7 +28,8 @@ const Navbar = () => {
 
                             <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
 
-                            <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold  ">Dashboard</button></NavLink></li>
+                            <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                      
 
                         </ul>
                     </div>
@@ -35,8 +42,10 @@ const Navbar = () => {
                         <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Home</button></NavLink></li>
 
                         <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
+                        
+                        <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
 
-                        <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold  ">Dashboard</button></NavLink></li>
+                   
 
                     </ul>
                 </div>
@@ -51,7 +60,7 @@ const Navbar = () => {
                             <div data-tip={user?.displayName || 'update hoy nai'} className="dropdown tooltip tooltip-left dropdown-bottom dropdown-hover dropdown-end text-black z-10">
 
                                 <div tabIndex={0} role="button" className="w-12 tooltip   tooltip-info tooltip-left z-10 " >
-                                    <img  className="rounded-full  md:h-[44px] md:w-[44px] h-[32px] w-[32px] bg-white" alt="" src={user?.photoURL || "https://i.ibb.co/L1kVMdW/images-removebg-preview.png"} />
+                                    <img className="rounded-full  md:h-[44px] md:w-[44px] h-[32px] w-[32px] bg-white" alt="" src={user?.photoURL || "https://i.ibb.co/L1kVMdW/images-removebg-preview.png"} />
                                 </div>
 
 

@@ -15,6 +15,8 @@ import AllEmployee from "../Pages/Dashboard/Admin/AllEmployee";
 import EmployeeRoute from "./EmployeeRoute";
 import HrRoute from "./HrRoute";
 import AdminRoute from "./AdminRoute";
+import PayModal from "../Components/PayModal";
+import EmployeeDetails from "../Components/EmployeeDetails";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -40,7 +42,8 @@ const router = createBrowserRouter([
                 path: '/blog/:id',
                 element: <BlogDetails></BlogDetails>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blog/${params.id}`)
-            }
+            },
+            
         ]
     },
     {
@@ -61,6 +64,11 @@ const router = createBrowserRouter([
             {
                 path: 'employee-list',
                 element: <HrRoute><EmployeeList></EmployeeList></HrRoute>
+            },
+            {
+                path: 'employee-list/:id',
+                element: <HrRoute><PayModal></PayModal></HrRoute>,
+                loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/employee/${params.id}`)
             },
             {
                 path: 'progress',

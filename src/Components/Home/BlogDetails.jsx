@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaPenNib } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -13,7 +14,9 @@ const BlogDetails = () => {
  
     return (
         <div>
-        {/* <h1 className="lg:text-4xl md:text-3xl text-2xl font-bold text-center bg-[#faf7f2]  md:py-5 py-3 rounded font-heading my-6 md:my-10">Read about : {blog.blog_title}</h1> */}
+      <Helmet>
+        <title>Blog Details - AItech</title>
+      </Helmet>
         <div className="md:px-10 px-3 pt-24">
             <div className="lg:w-[55%]"> <img className="w-full h-[300px]" src={blog.img} alt="" /></div>
             <h3 className="font-third text-2xl md:text-3xl font-bold text-[#2D4A8A] my-5">{blog.blog_title}</h3>

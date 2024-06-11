@@ -1,11 +1,15 @@
 import { SlLocationPin } from "react-icons/sl";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineAttachEmail } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 
 const ContactUs = () => {
     return (
         <div className=" pt-20 font-primary">
+            <Helmet>
+                <title>Contact Us - AItech</title>
+            </Helmet>
             <div style={{ backgroundImage: 'url("https://i.ibb.co/LRrc1JJ/summary.jpg")' }} className="h-[350px] bg-cover bg-center bg-no-repeat flex items-center justify-center">
                 <h1 className="text-5xl font-bold text-[#203563]">Contact With Us</h1>
             </div>
