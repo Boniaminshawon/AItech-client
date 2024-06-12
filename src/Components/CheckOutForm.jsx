@@ -35,8 +35,10 @@ const CheckOutForm = ({ employeeData }) => {
 
         const month = e.target.month.value;
         const year = e.target.year.value;
-        const monthlySalary= e.target.salary.value;
-        const monthlyYear = month.slice(0,4) +" '"+ year.slice(2,4);
+        const monthlySalary = e.target.salary.value;
+        const monthlyYear = month.slice(0, 4) + " '" + year.slice(2, 4);
+
+
 
 
         if (!stripe || !elements) {
@@ -76,28 +78,46 @@ const CheckOutForm = ({ employeeData }) => {
         }
         else {
             console.log('payment intent', paymentIntent);
+
+
             if (paymentIntent.status === 'succeeded') {
                 console.log('transaction id', paymentIntent.id);
-                setTransactionId(paymentIntent.id);
+                // setTransactionId(paymentIntent.id);
 
-                // post payment data of employee
-                const paymentInfo = { name, email, monthlySalary, month, year,monthlyYear, transactionId:paymentIntent.id, HrEmail: user?.email };
-                const { data } = await axiosSecure.post('/payment', paymentInfo);
+                try {
+                    const paymentInfo = { name, email, monthlySalary, month, year, monthlyYear, transactionId: paymentIntent.id, HrEmail: user?.email };
+                    const { data } = await axiosSecure.post('/payment', paymentInfo);
+                    console.log(data)
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Success",
+                            text: "Your successfully payment your employee",
 
-                if (data.insertedId) {
+                        });
+                        setTransactionId('Payment done successfully')
+
+                    }
+
+                }
+                catch (error) {
+                    console.log(error)
+                    setError('You have already payment for this month')
                     Swal.fire({
                         position: "top-end",
-                        icon: "success",
-                        title: "Success",
-                        text: "Your successfully payment your employee",
-        
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                        footer: '<a href="#">Why do I have this issue?</a>'
                     });
-             
+                    console.log('already axist')
                 }
+
 
             }
         }
-     
+
 
 
     }
@@ -108,7 +128,7 @@ const CheckOutForm = ({ employeeData }) => {
 
                     <label className="flex-1">
                         <span>Salary:</span> <br />
-                        <input required name="salary"  defaultValue={salary} type="text" placeholder="Type here" className="input input-bordered w-[120px] " />
+                        <input required name="salary" defaultValue={salary} type="text" placeholder="Type here" className="input input-bordered w-[120px] " />
                     </label>
 
                     <label className="flex-1">
@@ -155,8 +175,11 @@ const CheckOutForm = ({ employeeData }) => {
                 <button className="btn  rounded bg-[#17b932aa] text-white  my-5" type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
-                <p className="text-red-600">{error}</p>
-                {transactionId && <p className="text-green-500">Your Payment successfully Paid.</p>}
+                {error&& <p className="text-red-600">{error}</p>
+                }
+                {transactionId&& <p className="text-green-500">{transactionId}</p>}
+               
+               
             </form>
         </div>
     );
