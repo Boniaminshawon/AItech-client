@@ -18,18 +18,18 @@ const PaymentHistory = () => {
     });
     console.log(paymentHistory)
     return (
-        <div>
+        <div className="mt-4 md:mt-0">
              <div>
                 <div className=" flex justify-center flex-col items-center">
-                    <p className="text-center text-3xl font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Salary History Table </i></span></p>
+                    <p className="text-center md:text-3xl text-[22px] font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Salary History Table </i></span></p>
                     <p className="border-[3px]  rounded-b-lg border-[#2D4A8A] w-[100px] mt-4"></p>
                 </div>
                 <div>
                     <div className="overflow-x-auto mt-8">
-                        <table className="table text-base">
+                        <table className="table md:text-base">
                             {/* head */}
                             <thead>
-                                <tr className="text-xl font-bold font-primary">
+                                <tr className="md:text-xl text-base font-bold font-primary">
                                     <th></th>
                                     <th>Month</th>
                                     <th>Amount</th>

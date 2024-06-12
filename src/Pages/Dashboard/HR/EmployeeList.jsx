@@ -45,23 +45,23 @@ const EmployeeList = () => {
 
     }
        return (
-        <div>
+        <div className="mt-4 md:mt-0">
             {/* work sheet table */}
             <div>
                 <div className=" flex justify-center flex-col items-center">
-                    <p className="text-center text-3xl font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Employee Information Table</i></span></p>
+                    <p className="text-center md:text-3xl text-[22px] font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Employee Information Table</i></span></p>
                     <p className="border-[3px]  rounded-b-lg border-[#2D4A8A] w-[100px] mt-4"></p>
                 </div>
                 <div>
                     <div className="overflow-x-auto mt-8">
-                        <table className="table text-base">
+                        <table className="table md:text-base">
                             {/* head */}
                             <thead>
-                                <tr className="text-xl font-bold font-primary">
+                                <tr className="md:text-xl text-base font-bold font-primary">
                                     <th></th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Bank Account</th>
+                                    <th >Name</th>
+                                    <th className="">Email</th>
+                                    <th className="">Bank Account</th>
                                     <th>Salary</th>
                                     <th>Verified</th>
                                     <th>Pay</th>
@@ -73,8 +73,8 @@ const EmployeeList = () => {
                                     employeeList.map((employee, index) => <tr key={employee._id} className="hover">
                                         <th>{index + 1}</th>
                                         <td>{employee.name}</td>
-                                        <td>{employee.email}</td>
-                                        <td> {employee.bank_Ac}</td>
+                                        <td className="">{employee.email}</td>
+                                        <td className=""> {employee.bank_Ac}</td>
                                         <td>$ {employee.salary}</td>
 
 

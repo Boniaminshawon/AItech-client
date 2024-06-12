@@ -51,7 +51,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <Link to={'/'}>        <button className="btn btn-ghost"> <img className="w-[155px]" src="https://i.ibb.co/WH0HB0z/logo-1.png" alt="" /></button></Link>
+                    <Link to={'/'}>        <button className="btn btn-ghost"> <img className="md:w-[155px] w-[110px]" src="https://i.ibb.co/WH0HB0z/logo-1.png" alt="" /></button></Link>
 
                 </div>
 

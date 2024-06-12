@@ -11,7 +11,7 @@
 
 ## Key Features of this website:
 
-- Role-Based Access Control: Three distinct user roles (Admin, HR, Employee) with specific permissions and access levels to ensure secure and organized management.
+- Role-Based Access Control : Three distinct user roles (Admin, HR, Employee) with specific permissions and access levels to ensure secure and organized management.
 - Admin Dashboard: Admins can view all verified employees and HR personnel, adjust salaries (increase only), promote employees to HR, and fire employees or HR members, preventing further access to the site.
 - HR Verification: HR personnel can verify or unverify employees, ensuring only approved individuals are active on the platform.
 - Salary Management: HR can handle salary payments via a Stripe payment gateway, facilitating secure and efficient transactions.

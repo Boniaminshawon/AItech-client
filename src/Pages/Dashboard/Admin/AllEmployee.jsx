@@ -105,20 +105,20 @@ const AllEmployee = () => {
 
             <div>
                 <div className=" flex justify-center flex-col items-center">
-                    <p className="text-center text-3xl font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Employee Information Table</i></span></p>
+                    <p className="text-center md:text-3xl text-[22px] font-semibold  text-[#263045] "> <span className=" text-[#2d4a8a] font-secondary"><i>Employee Information Table</i></span></p>
                     <p className="border-[3px]  rounded-b-lg border-[#2D4A8A] w-[100px] mt-4"></p>
                     <button onClick={() => { setToggle(!toggle) }} className="btn rounded mb-2 font-third ">{toggle ? 'Table' : 'Card'}</button>
                 </div>
                 <div>
                     {toggle ? <div className="overflow-x-auto mt-8">
-                        <table className="table text-base">
+                        <table className="table md:text-base">
                             {/* head */}
                             <thead>
-                                <tr className="text-xl font-bold font-primary">
+                                <tr className="md:text-xl text-base font-bold font-primary">
                                     <th></th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Designation</th>
+                                    <th className="">Email</th>
+                                    <th className="">Designation</th>
                                     <th>Salary</th>
                                     <th>Adjust Salary</th>
                                     <th>Make HR</th>
@@ -130,8 +130,8 @@ const AllEmployee = () => {
                                     allEmployee?.map((employee, index) => <tr key={employee._id} className="hover">
                                         <th>{index + 1}</th>
                                         <td>{employee.name}</td>
-                                        <td>{employee.email}</td>
-                                        <td>{employee.designation}</td>
+                                        <td className="">{employee.email}</td>
+                                        <td className="">{employee.designation}</td>
                                         <td>$ {employee.salary}</td>
                                         <td><button onClick={() => handleModal(employee._id)} className="btn btn-success btn-outline rounded">Update</button></td>
                                         <td>{employee.role === 'HR' ? <span className="text-center pl-3 ">HR</span> : <button onClick={() => handleMakeHr(employee._id)} className="btn btn-outline rounded btn-success">{employee.role}</button>
@@ -146,20 +146,20 @@ const AllEmployee = () => {
                         </table>
                     </div>
                         :
-                        <div className="grid grid-cols-3 gap-5">
+                        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                             {allEmployee.map((employee) => <div key={employee._id}
                                 className="border font-primary p-4 space-y-2 bg-[#f7f9fe] shadow-lg rounded">
                                 <p><span className="font-bold">Name:</span> {employee.name}</p>
                                 <p><span className="font-bold">Email:</span>  {employee.email}</p>
                                 <p className="text-lg"><span className="font-bold">Designation:</span> {employee.designation}</p>
 
-                                <div className="flex justify-between items-center">
+                                <div className="flex justify-between md:items-center flex-col md:flex-row">
                                     <p className="text-lg"><span className="font-bold">Salary: </span> $ {employee.salary}</p>
 
                                     <p className="text-lg"><span className="font-bold">Adjust Salary: </span> <button onClick={() => handleModal(employee._id)} className="btn ml-1 btn-success btn-outline rounded">Update</button> </p>
                                 </div>
 
-                                <div className="flex justify-between items-center">
+                                <div className="flex justify-between md:items-center flex-col md:flex-row">
                                     <p className="text-lg"><span className="font-bold">Make HR: </span>  {employee.role === 'HR' ? <span className="text-center pl-2 ">HR</span> : <button onClick={() => handleMakeHr(employee._id)} className=" ml-1 btn btn-outline text-base rounded btn-success">{employee.role}</button>
                                     }</p>
 

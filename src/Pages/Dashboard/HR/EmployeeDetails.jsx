@@ -29,24 +29,25 @@ const EmployeeDetails = () => {
 
     return (
         <div className="font-primary bg-[#f7f9fe] py-10 ">
-            <h1 className="text-3xl font-bold text-center">Employee Profile</h1>
+            <h1 className="md:text-3xl text-2xl font-bold text-center">Employee Profile</h1>
             <div className="flex flex-col justify-center items-center mt-5">
-                <img className="rounded-full w-[185px] h-[185px] p-2 bg-white border-[4px] border-[#d5d5d5]    hover:border-[#2d4a8a]" src={image || 'https://i.ibb.co/RzH6pLn/profile-default-icon-2048x2045-u3j7s5nj.png'} alt="" />
-                <p className="text-xl mt-4 mb-1"><span className="font-bold">Name:</span> {name}</p>
-                <p className="text-xl"><span className="font-bold">Designation:</span> {designation}</p>
+                <img className="rounded-full md:w-[185px] md:h-[185px] w-[130px] h-[130px] p-2 bg-white border-[4px] border-[#d5d5d5]    hover:border-[#2d4a8a]" src={image || 'https://i.ibb.co/RzH6pLn/profile-default-icon-2048x2045-u3j7s5nj.png'} alt="" />
+                <p className="md:text-xl text-lg mt-4 mb-1"><span className="font-bold">Name:</span> {name}</p>
+                <p className="md:text-xl text-lg"><span className="font-bold">Designation:</span> {designation}</p>
 
             </div>
             <div className=" pt-10">
-                <p className="text-center text-3xl font-semibold mb-5  text-[#263045] "> A bar chart <span className=" text-[#2d4a8a] font-secondary"><i>Salary vs. Month </i></span></p>
-               
-                <BarChart
+                <p className="text-center md:text-3xl text-[22px] font-semibold mb-5  text-[#263045] "> A bar chart <span className=" text-[#2d4a8a] font-secondary"><i>Salary vs. Month </i></span></p>
+                <div style={{ width: '100%', height: 500 }}>
+               <ResponsiveContainer>
+               <BarChart
                     width={1000}
                     height={500}
                     data={salaryInfo}
                     margin={{
                         top: 5,
-                        right: 30,
-                        left: 20,
+                        right: 10,
+                        left: 10,
                         bottom: 5,
                     }}
                 >
@@ -63,6 +64,8 @@ const EmployeeDetails = () => {
                     </Bar>
 
                 </BarChart>
+               </ResponsiveContainer>
+               </div>
 
             </div>
         </div>

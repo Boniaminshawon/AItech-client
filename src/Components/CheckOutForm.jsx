@@ -104,7 +104,7 @@ const CheckOutForm = ({ employeeData }) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div className="font-bold text-lg flex gap-3 mb-5">
+                <div className="font-bold text-lg flex flex-col md:flex-row gap-3 mb-5">
 
                     <label className="flex-1">
                         <span>Salary:</span> <br />

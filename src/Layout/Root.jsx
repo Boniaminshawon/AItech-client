@@ -7,8 +7,8 @@ const Root = () => {
     return (
         <div>
             <ScrollRestoration />
-            <div >
-                {/* className="lg:h-[76px] h-[64px] md:h-[67px]" */}
+            <div  className="lg:h-[0px] h-[64px] md:h-[0px]">
+               
                 <Navbar></Navbar>
             </div>
 

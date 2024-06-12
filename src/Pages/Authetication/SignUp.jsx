@@ -116,7 +116,7 @@ const SignUp = () => {
 
 
                             {/* name and email */}
-                            <div className="flex gap-8">
+                            <div className="flex md:flex-row flex-col md:gap-8">
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text text-lg font-medium">Name <span className="text-red-500 font-bold">*</span></span>
@@ -141,7 +141,7 @@ const SignUp = () => {
 
 
                             {/* role and designation */}
-                            <div className="flex gap-8">
+                            <div className="flex md:flex-row flex-col md:gap-8">
                                 <label className="form-control w-full">
                                     <div className="label ">
                                         <span className="label-text text-lg font-medium">Your Roles <span className="text-red-500 font-bold">*</span></span>
@@ -185,7 +185,7 @@ const SignUp = () => {
                             </div>
 
                             {/*  bank account and salary */}
-                            <div className="flex gap-8">
+                            <div className="flex md:flex-row flex-col md:gap-8">
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text text-lg font-medium">Bank Account No. <span className="text-red-500 font-bold">*</span></span>
