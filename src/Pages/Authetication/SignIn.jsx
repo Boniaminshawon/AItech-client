@@ -28,7 +28,7 @@ const SignIn = () => {
     }, [navigate, user]);
 
     const role = 'Employee';
-    const salary = '1000';
+    const salary = '100';
     const isVarified = false;
 
 

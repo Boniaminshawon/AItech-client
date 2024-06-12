@@ -38,6 +38,7 @@ const EmployeeDetails = () => {
             </div>
             <div className=" pt-10">
                 <p className="text-center text-3xl font-semibold mb-5  text-[#263045] "> A bar chart <span className=" text-[#2d4a8a] font-secondary"><i>Salary vs. Month </i></span></p>
+               
                 <BarChart
                     width={1000}
                     height={500}

@@ -200,7 +200,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text text-lg font-medium">Salary <span className="text-red-500 font-bold">*</span></span>
                                     </label>
-                                    <input type="number" placeholder="Your Name" className="input input-bordered" min="1000" max="100000"
+                                    <input type="number" placeholder="Your Name" className="input input-bordered" min="10" max="500"
                                         {...register("salary", { required: true })}
                                     />
                                     {errors.salary && <span className="text-red-500 mt-2 text-lg">This field is required</span>}

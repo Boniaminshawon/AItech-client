@@ -75,22 +75,21 @@ const EmployeeList = () => {
                                         <td>{employee.name}</td>
                                         <td>{employee.email}</td>
                                         <td> {employee.bank_Ac}</td>
-                                        <td>{employee.salary}</td>
+                                        <td>$ {employee.salary}</td>
 
 
                                         <td> <button className="text-center btn rounded text-xl font-bold" onClick={() => { handleToggle(employee._id) }}>
                                             {employee.isVarified ? '✅' : '❌'}
                                         </button>
                                         </td>
-                                        {/*  */}
-
-                                        {/* <td className=""><Link to={`${employee._id}`}><button disabled={!employee.isVarified} onClick={handleModal} className="btn rounded bg-[#17b932aa] text-white">Pay</button></Link></td> */}
+                                    
+                                    
                                         <td>
                                             {!employee.isVarified ?
                                                 <button disabled className="btn rounded bg-[#17b932aa] text-white">Pay</button> :
 
                                                 <button onClick={() => handleModal(employee._id)} className="btn rounded bg-[#17b932aa] text-white">Pay</button>
-                                                // <Link to={`${employee._id}`}></Link>
+                                                
 
                                             }
                                         </td>

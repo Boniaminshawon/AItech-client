@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
 import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 
 const CheckOutForm = ({ employeeData }) => {
@@ -84,8 +85,13 @@ const CheckOutForm = ({ employeeData }) => {
                 const { data } = await axiosSecure.post('/payment', paymentInfo);
 
                 if (data.insertedId) {
-                    swal("Wow!", "Payment successfully!  ", "success");
-                    toast.success('payment successfully');
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Success",
+                        text: "Your successfully payment your employee",
+        
+                    });
              
                 }
 
