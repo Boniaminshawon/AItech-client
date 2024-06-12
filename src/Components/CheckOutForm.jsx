@@ -35,6 +35,7 @@ const CheckOutForm = ({ employeeData }) => {
         const month = e.target.month.value;
         const year = e.target.year.value;
         const monthlySalary= e.target.salary.value;
+        const monthlyYear = month.slice(0,4) +" '"+ year.slice(2,4);
 
 
         if (!stripe || !elements) {
@@ -79,7 +80,7 @@ const CheckOutForm = ({ employeeData }) => {
                 setTransactionId(paymentIntent.id);
 
                 // post payment data of employee
-                const paymentInfo = { name, email, monthlySalary, month, year, transactionId:paymentIntent.id, HrEmail: user?.email };
+                const paymentInfo = { name, email, monthlySalary, month, year,monthlyYear, transactionId:paymentIntent.id, HrEmail: user?.email };
                 const { data } = await axiosSecure.post('/payment', paymentInfo);
 
                 if (data.insertedId) {
