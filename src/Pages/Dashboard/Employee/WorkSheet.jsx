@@ -30,7 +30,8 @@ const WorkSheet = () => {
         const task = form.task.value;
         const hour = form.hour.value;
         const email = user?.email;
-        const info = { date, task, hour,email }
+        const name= user?.displayName;
+        const info = { date, task, hour,email, name }
         try {
             const { data } = await axiosSecure.post('/employee-work-info', info);
 

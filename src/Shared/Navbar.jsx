@@ -8,9 +8,9 @@ import useEmployee from "../Hooks/useEmployee";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    // const [isAdmin] = useAdmin();
-    // const [isHR] = useHR();
-    // const [isEmployee] = useEmployee();
+    const [isAdmin] = useAdmin();
+    const [isHR] = useHR();
+    const [isEmployee] = useEmployee();
     const handleLogOut = () => {
         logOut()
             .then().catch(error => console.log(error))
@@ -28,8 +28,26 @@ const Navbar = () => {
 
                             <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
 
-                            <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
-                      
+                            {user ? <li className="hidden"><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                       :
+                       <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>}
+                        {/* admin */}
+
+                        {user && isAdmin &&
+                            <li><NavLink to={'/dashboard/all-employee-list'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                            
+                           }
+
+                        {/* He */}
+                        {user && isHR &&
+                            <li><NavLink to={'/dashboard/employee-list'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                          }
+
+                        {/* employee */}
+                        {user && isEmployee &&
+                            <li><NavLink to={'/dashboard/work-sheet'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                          }
+
 
                         </ul>
                     </div>
@@ -42,10 +60,28 @@ const Navbar = () => {
                         <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Home</button></NavLink></li>
 
                         <li><NavLink to={'/contact'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Contact Us</button></NavLink></li>
-                        
-                        <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
 
-                   
+                       {user ? <li className="hidden"><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                       :
+                       <li><NavLink to={'/dashboard'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>}
+                        {/* admin */}
+
+                        {user && isAdmin &&
+                            <li><NavLink to={'/dashboard/all-employee-list'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                            
+                           }
+
+                        {/* He */}
+                        {user && isHR &&
+                            <li><NavLink to={'/dashboard/employee-list'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                          }
+
+                        {/* employee */}
+                        {user && isEmployee &&
+                            <li><NavLink to={'/dashboard/work-sheet'} className={({ isActive }) => isActive ? 'rounded border border-[#3d5ea7] text-[#2D4A8A] ' : '  '}><button className=" text-xl font-bold ">Dashboard</button></NavLink></li>
+                          }
+
+
 
                     </ul>
                 </div>

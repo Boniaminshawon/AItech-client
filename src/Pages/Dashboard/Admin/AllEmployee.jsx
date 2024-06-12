@@ -8,6 +8,7 @@ import { useState } from "react";
 const AllEmployee = () => {
     const [toggle, setToggle] = useState(true);
     const [employeeData, setEmployeeData] = useState([]);
+    
     const axiosSecure = useAxiosSecure();
     const { data: allEmployee = [], refetch } = useQuery({
         queryKey: ['allEmployee'],
@@ -80,6 +81,7 @@ const AllEmployee = () => {
     const updateSalary = async (e) => {
         e.preventDefault();
         const updatedSalary = e.target.salary.value;
+     
         const salary = {
             updatedSalary
         }
@@ -93,6 +95,7 @@ const AllEmployee = () => {
                 text: "Your update the salary",
 
             });
+            e.target.reset();
         }
 
     }
@@ -185,7 +188,8 @@ const AllEmployee = () => {
 
                                 <label className="flex-1">
                                     <span>Update Salary:</span> <br />
-                                    <input required max={500} min={employeeData.salary} name="salary" type="number" placeholder="Type here" className="input input-bordered w-[130px] " />
+                                    <input required min={employeeData.salary} max={500} name="salary" type="number" placeholder="Type here" className="input input-bordered w-[130px] " />
+                                   
                                 </label>
 
 

@@ -18,7 +18,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
             <ScrollRestoration />
-            <div className="min-h-screen w-[17%] bg-[#2D4A8A] font-primary">
+            <div className="min-h-screen w-[17%] bg-[#2D4A8A] pt-7 font-primary">
                 {/* for employee */}
                 {
                     isEmployee && <div>
