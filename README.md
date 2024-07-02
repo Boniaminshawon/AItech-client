@@ -13,13 +13,13 @@ This project is an employee management platform with three user roles (Admin, HR
 
 ## Key Features of this website:
 
-# Role-Based Access Control :
+### Role-Based Access Control :
 - Three distinct user roles (Admin, HR, Employee) with specific permissions and access levels to ensure secure and organized management.
-# Admin Dashboard:
+### Admin Dashboard:
 - Admins can view all verified employees and HR personnel, adjust salaries (increase only), promote employees to HR, and fire employees or HR members, preventing further access to the site.
-# HR Verification & Salary Management:
+### HR Verification & Salary Management:
 - HR personnel can verify/unverify employees and manage salary payments securely via Stripe.
-# Employee Work & Payment Management: 
+### Employee Work & Payment Management: 
 - Employees can log their work information and view detailed payment histories, facilitating easy tracking and transparency.
 
 ## Technology: 
