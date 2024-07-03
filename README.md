@@ -23,4 +23,10 @@ This project is an employee management platform with three user roles (Admin, HR
 - Employees can log their work information and view detailed payment histories, facilitating easy tracking and transparency.
 
 ## Technology: 
-- HTML , Tailwind-CSS , React.js , Node.js  , Express.js , firebase , Mongodb
+- HTML , Tailwind-CSS , React.js , Firebase-auth , swiper-slider , react-helmet, react-hook-form , react-hot-toast, switealeart .
+
+## How to set Up the project locally:
+- Clone this repository
+- Install npm
+- Install and login firebase
+- npm run dev in your terminal .
